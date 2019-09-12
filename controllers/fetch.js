@@ -11,6 +11,8 @@ module.exports = {
         // then insert articles into the db
         return db.Headline.create(articles);
       })
+      // this doesn't seem to always work when there are no new headlines to display...
+      // also, it would be nice if there was some HTML to let you know the scraping was in progress
       .then(function(dbHeadline) {
         if (dbHeadline.length === 0) {
           res.json({
@@ -24,6 +26,7 @@ module.exports = {
           });
         }
       })
+      // this doesn't seem to actually be handling the error??
       .catch(function(err) {
         // This query won't insert articles with duplicate headlines, but it will error after inserting the others
         res.json({

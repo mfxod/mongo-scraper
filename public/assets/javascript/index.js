@@ -28,6 +28,8 @@ $(document).ready(function() {
     var articleCards = [];
     // We pass each article JSON object to the createCard function which returns a bootstrap
     // card with our article data inside
+
+    // since the JSON articles are already in an array, couldn't we use map() to create articleCards instead?
     for (var i = 0; i < articles.length; i++) {
       articleCards.push(createCard(articles[i]));
     }
@@ -98,6 +100,7 @@ $(document).ready(function() {
 
     articleToSave.saved = true;
     // Using a patch method to be semantic since this is an update to an existing record in our collection
+    // what makes this a patch? Looks like a put.
     $.ajax({
       method: "PUT",
       url: "/api/headlines/" + articleToSave._id,

@@ -30,6 +30,8 @@ $(document).ready(function() {
     var articleCards = [];
     // We pass each article JSON object to the createCard function which returns a bootstrap
     // card with our article data inside
+
+    // same as on index - this could be a map()
     for (var i = 0; i < articles.length; i++) {
       articleCards.push(createCard(articles[i]));
     }
@@ -152,6 +154,7 @@ $(document).ready(function() {
         $("<button class='btn btn-success save'>Save Note</button>")
       );
       // Adding the formatted HTML to the note modal
+      // modals AND bootstrap? Dustin must love bootbox :)
       bootbox.dialog({
         message: modalText,
         closeButton: true
